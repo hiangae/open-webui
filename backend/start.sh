@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+cd /home/frappe/open-webui/backend
+source ../env/bin/activate
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 cd "$SCRIPT_DIR" || exit
@@ -20,7 +22,7 @@ else
     KEY_FILE=".webui_secret_key"
 fi
 
-PORT="${PORT:-8080}"
+PORT="${PORT:-8888}"
 HOST="${HOST:-0.0.0.0}"
 if test "$WEBUI_SECRET_KEY $WEBUI_JWT_SECRET_KEY" = " "; then
   echo "Loading WEBUI_SECRET_KEY from file, not provided as an environment variable."
